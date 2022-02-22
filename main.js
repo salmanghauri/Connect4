@@ -41,48 +41,65 @@ function resetGame () {
         ['','','', ''],
      ],
      players.player1.turn = true;
-     players.player1.turn = false;
+     players.player2.turn = false;
 };
-///eventlistener for click on slot///
-gameBoard.addEventListener('click', moveMade);
+
+gameSlots.forEach(function (idx) {
+    if (idx.id.charAt(0) == 0 ) {
+        idx.addEventListener('click', moveMade);
+    }
+});
 function moveMade(event) {
     console.log(event.target.id);
     let gameSlot = event.target;
-    if (gameSlot.innerHTML) {
+    let [row, column] = gameSlot.id.split('-');
+    if (gameSlot.style.backgroundColor !== "white") {
         alert('try another Slot!');
         return;
     }
     if (players.player1.turn === true) {
-        gameSlot.style.backgroundColor = "red";
-        const [row, column] = gameSlot.id.split('-');
+        for ( let i=3; i >= 0; i--) {
+            console.log(gameSlots[column]);
+        if (gameSlots[column*4].style.backgroundColor = "white") {
+            gameSlots[column*4].style.backgroundColor = "red"
+            break;
+        }
+            
+    }
         moves.connect4Board [row] [column] = players.player1.text;
         console.log(moves.connect4Board);
-        let winner = checkWinner(players.player1.text);
-        if (winner) {
-            document.querySelector('h1').innerText = "Player 1 Wins"
+        // let winner = checkWinner(players.player1.text);
+        if (false) {
+            document.querySelector('h2').innerText = "Player 1 Wins"
             resetGame();
         }
         else {
             players.player1.turn = false;
             players.player2.turn = true;
+            console.log(players.player1.turn);
         }
     }
     else {
-        gameSlot.style.backgroundColor = "yellow";
-        const [row, column] = gameslot.id.split('-');
+        for ( let i=3; i >= 0; i--) {
+            console.log(gameSlots[column]);
+        if (gameSlots[column*4].style.backgroundColor = "white") {
+            gameSlots[column*4].style.backgroundColor = "yellow"
+            break;
+        }
         moves.connect4Board [row] [column] = players.player2.text;
         console.log(moves.connect4Board);
-        let winner = checkWinner(players.player2.text);
-        if (winner) {
-            document.querySelector('h1').innerText = 'Player 2 Wins';
+        // let winner = checkWinner(players.player2.text);
+        if (false) {
+            document.querySelector('h2').innerText = 'Player 2 Wins';
             resetGame();
         }
         else { 
             players.player1.turn = true;
-            players.player2.turn = false
+            players.player2.turn = false;
         }
             
     }
+}
 }
 /// array this time checks a 6x7 grid for four in a row
     //function will check diagonal, horizontal, vertical
