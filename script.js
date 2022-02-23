@@ -135,17 +135,17 @@ function checkWinner(player) {
             }
         }
     }
-    ///diagonal check//
-    // for (let col=0; col<4; col++) {
-    //     for (let row=0; row<3; row++) {
-    //         if (moves.connect4Board[row][column]===player && moves.connect4Board[row+1][col+1]===player && moves.connect4Board[row+2][col+2]===player && moves.connect4Board[row+3][col+3]===player && player !== "") {
-    //             return player;
-    //         }
-    //     }
-    // }
+    //diagonal check//
+    for (let row=0; row<4; row++) {
+        for (let col=0; col<4; col++){
+            if (moves.connect4Board[row][col]===player && moves.connect4Board[row+1][col+1]===player && moves.connect4Board[row+2][col+2]===player && moves.connect4Board[row+3][col+3]===player && player !== "") {
+                return player;
+            }
+        }
+    }
     for (let row=5; row>2; row--) {
         for (let col=6; col>3; col--) {
-            if (moves.connect4Board[row][column]===player && moves.connect4Board[row-1][col-1]===player && moves.connect4Board[row-2][col-2]===player && moves.connect4Board[row-3][col-3]===player && player !== "") {
+            if (moves.connect4Board[row][col]===player && moves.connect4Board[row-1][col-1]===player && moves.connect4Board[row-2][col-2]===player && moves.connect4Board[row-3][col-3]===player && player !== "") {
                 return player;
             }
         }
