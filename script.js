@@ -1,4 +1,4 @@
-/// pseudocode:
+
 /// dynamic variables////
 const players = {
     player1: {
@@ -27,6 +27,7 @@ let gameBoard = document.querySelector('table');
 let gameSlots = document.querySelectorAll('td');
 const resetButton = document.querySelector('#resetButton');
 let display = document.querySelector('h2');
+let scoreboard = document.querySelector('h3');
 let winner = "";
 ///reset button///
 resetButton.addEventListener("click", resetGame);
@@ -86,6 +87,7 @@ function moveMade(event) {
         winner = checkWinner(players.player1.text);
         if (winner) {
             display.innerText = `${players.player1.name} Wins, Press Reset to Play Again`;
+            scoreboard.innerText = `${players.player1.name} Won the Last Game`
             return;
 
         }

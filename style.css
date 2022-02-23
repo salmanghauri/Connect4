@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 *{
     margin: 0 auto;
     padding: 0;
     /* ensuring all the boxes are the same size: */
     box-sizing: border-box;
+    font-family: 'Bebas Neue', cursive;
 }
 .container {
     display: flex;
@@ -12,13 +14,13 @@
 .gameTable {
     border: 1px solid black;
     position: absolute;
-    top: 4rem;
+    top: 5rem;
     left: 50%;
     /* transforms our table into a 2D variable and makes it in the middle of the screen with -50% */
     transform: translate(-50%); 
     width: 720px;
     height: 700px;
-    background: rgb(1, 59, 1);
+    background: rgb(0, 14, 0);
     /* applying a shadow to each box for look */
     box-shadow: 5px 5px 5px 5px rgb(31, 30, 30);
 }
@@ -35,13 +37,27 @@ h1 {
 }
 .resetButton {
     position: absolute;
-    top: 82vh; 
+    background-color: gray;
+    top: 83vh; 
     left: 50%;
     transform: translate(-50%);
     border: 1px solid black;
     width: 5rem;
     text-align: center;
+    padding: 5px;
 }
 body {
-    background-color: greenyellow;
+    background-image: url("https://64.media.tumblr.com/c5cfd6855032b097c9e0f34ddab2c7ab/27d426bbf5c050e4-51/s1280x1920/8a99bea582251b44654b3972452de82cad50f7b7.jpg");
+    background-size: 100%;
+}
+h3 {
+    top: 90vh;
+    left: 46%;
+    text-align: center;
+}
+h4 {
+    position: absolute;
+    top: 9vh;
+    left: 25%;
+    text-align: center;
 }
