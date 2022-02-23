@@ -14,10 +14,12 @@ const players = {
 };
 let moves = {
     connect4Board: [
-    ['','','', ''],
-    ['','','', ''],
-    ['','','', ''],
-    ['','','', ''],
+    ['','','', '','','',''],
+    ['','','', '','','',''],
+    ['','','', '','','',''],
+    ['','','', '','','',''],
+    ['','','', '','','',''],
+    ['','','', '','','',''],
  ],
 };
 ///constants///
@@ -35,10 +37,12 @@ function resetGame () {
         slot.style.backgroundColor = "white";
     });
     moves.connect4Board = [
-        ['','','', ''],
-        ['','','', ''],
-        ['','','', ''],
-        ['','','', ''],
+        ['','','', '','','',''],
+        ['','','', '','','',''],
+        ['','','', '','','',''],
+        ['','','', '','','',''],
+        ['','','', '','','',''],
+        ['','','', '','','',''],
      ],
      players.player1.turn = true;
      players.player2.turn = false;
@@ -69,10 +73,10 @@ function moveMade(event) {
         return;
     }
     if (players.player1.turn === true) {
-        for ( let i=3; i >= 0; i--) {
-            console.log(gameSlots[column + (i*4)]);
-            if (gameSlots[column + (i*4)].style.backgroundColor == "white") {
-                gameSlots[column + (i*4)].style.backgroundColor = "red"
+        for ( let i=5; i >= 0; i--) {
+            console.log(gameSlots[column + (i*7)]);
+            if (gameSlots[column + (i*7)].style.backgroundColor == "white") {
+                gameSlots[column + (i*7)].style.backgroundColor = "red"
                 moves.connect4Board [i] [column] = players.player1.text;
                 console.log(moves.connect4Board);
                 break;
@@ -92,10 +96,10 @@ function moveMade(event) {
         }
     }
     else {
-        for ( let i=3; i >= 0; i--) {
+        for ( let i=5; i >= 0; i--) {
             console.log(column);
-            if (gameSlots[column + (i*4)].style.backgroundColor == "white") {
-                gameSlots[column + (i*4)].style.backgroundColor = "yellow"
+            if (gameSlots[column + (i*7)].style.backgroundColor == "white") {
+                gameSlots[column + (i*7)].style.backgroundColor = "yellow"
                 moves.connect4Board [i] [column] = players.player2.text;
                 console.log(moves.connect4Board);
                 break;
@@ -115,21 +119,36 @@ function moveMade(event) {
     }
 }
 function checkWinner(player) {
-    for (let row=0; row <4; row++) {
-        if (moves.connect4Board[row][0]===player && moves.connect4Board[row][1]===player && moves.connect4Board[row][2]===player && moves.connect4Board[row][3]===player) {
-            return player;
+    //for loop to check horizontal rows
+    for (let row=0; row <6; row++) {
+        for (let col=0; col<4; col++) {
+            if (moves.connect4Board[row][col]===player && moves.connect4Board[row][col+1]===player && moves.connect4Board[row][col+2]===player && moves.connect4Board[row][col+3]===player && player !== "") {
+                return player;
+            }
         }
     }
-    for (let col=0; col<4; col++){
-        if (moves.connect4Board[0][col]===player && moves.connect4Board[1][col]===player && moves.connect4Board[2][col]===player && moves.connect4Board[3][col]===player) {
+    //for loop to check vertical columns//
+    for (let col=0; col<7; col++){
+        for (let row=0; row<3; row++) {
+            if (moves.connect4Board[row][col]===player && moves.connect4Board[row+1][col]===player && moves.connect4Board[row+2][col]===player && moves.connect4Board[row+3][col]===player && player !== "") {
             return player;
+            }
         }
     }
-    if (moves.connect4Board[0][0]===player && moves.connect4Board[1][1]===player && moves.connect4Board[2][2]===player && moves.connect4Board[3][3]===player) {
-        return player;
+    ///diagonal check//
+    // for (let col=0; col<4; col++) {
+    //     for (let row=0; row<3; row++) {
+    //         if (moves.connect4Board[row][column]===player && moves.connect4Board[row+1][col+1]===player && moves.connect4Board[row+2][col+2]===player && moves.connect4Board[row+3][col+3]===player && player !== "") {
+    //             return player;
+    //         }
+    //     }
+    // }
+    for (let row=5; row>2; row--) {
+        for (let col=6; col>3; col--) {
+            if (moves.connect4Board[row][column]===player && moves.connect4Board[row-1][col-1]===player && moves.connect4Board[row-2][col-2]===player && moves.connect4Board[row-3][col-3]===player && player !== "") {
+                return player;
+            }
+        }
     }
-    else if (moves.connect4Board[3][0]===player && moves.connect4Board[2][1]===player && moves.connect4Board[1][2]===player && moves.connect4Board[0][3]===player) {
-        return player;
-    }
-}
+};
 

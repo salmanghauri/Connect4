@@ -16,8 +16,8 @@
     left: 50%;
     /* transforms our table into a 2D variable and makes it in the middle of the screen with -50% */
     transform: translate(-50%); 
-    width: 400px;
-    height: 500px;
+    width: 720px;
+    height: 700px;
     background: rgb(1, 59, 1);
     /* applying a shadow to each box for look */
     box-shadow: 5px 5px 5px 5px rgb(31, 30, 30);
@@ -35,7 +35,7 @@ h1 {
 }
 .resetButton {
     position: absolute;
-    top: 60vh; 
+    top: 82vh; 
     left: 50%;
     transform: translate(-50%);
     border: 1px solid black;
