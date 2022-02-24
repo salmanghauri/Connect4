@@ -14,8 +14,8 @@ You can only place one piece at a time and cannot play in a spot already occupie
 
 ## Screenshots
 
-![Starting game board]("img/starting.png")
-![Final game board]("img/final.png")
+![Starting game board](img/starting.PNG)
+![Final game board](img/final.PNG)
 
 ## Technologies Used
 
