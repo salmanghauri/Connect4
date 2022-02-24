@@ -53,8 +53,9 @@ body {
     background-size: 100%;
 }
 h3 {
+    position: absolute;
     top: 90vh;
-    left: 46%;
+    left: 45%;
     text-align: center;
 }
 h4 {
