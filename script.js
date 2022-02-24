@@ -110,6 +110,7 @@ function moveMade(event) {
         winner = checkWinner(players.player2.text);
         if (winner) {
             display.innerText = `${players.player2.name} Wins, Press Reset to Play Again`;
+            scoreboard.innerText = `${players.player2.name} Won the Last Game`
             return;
         }
         else { 
@@ -154,20 +155,20 @@ function checkWinner(player) {
             }
         }
     }
-    //diagonal check top left//
-    for (let row=0; row<4; row++) {
-        for (let col=0; col<4; col++){
-            if (moves.connect4Board[row][col]===player && moves.connect4Board[row+1][col+1]===player && moves.connect4Board[row+2][col+2]===player && moves.connect4Board[row+3][col+3]===player && player !== "") {
-                return player;
-            }
-        }
-    }
-    //diagonal check top right//
-    for (let row=0; row<4; row++) {
-        for (let col=6; col>2; col--) {
-            if (moves.connect4Board[row][col]===player && moves.connect4Board[row+1][col-1]===player && moves.connect4Board[row+2][col-2]===player && moves.connect4Board[row+3][col-3]===player && player !== "") {
-                return player;
-            }
-        }
-    }
+    // //diagonal check top left//
+    // for (let row=0; row<4; row++) {
+    //     for (let col=0; col<4; col++){
+    //         if (moves.connect4Board[row][col]===player && moves.connect4Board[row+1][col+1]===player && moves.connect4Board[row+2][col+2]===player && moves.connect4Board[row+3][col+3]===player && player !== "") {
+    //             return player;
+    //         }
+    //     }
+    // }
+    // //diagonal check top right//
+    // for (let row=0; row<4; row++) {
+    //     for (let col=6; col>2; col--) {
+    //         if (moves.connect4Board[row][col]===player && moves.connect4Board[row+1][col-1]===player && moves.connect4Board[row+2][col-2]===player && moves.connect4Board[row+3][col-3]===player && player !== "") {
+    //             return player;
+    //         }
+    //     }
+    // }
 };
