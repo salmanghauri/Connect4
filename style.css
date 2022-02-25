@@ -2,7 +2,6 @@
 *{
     margin: 0 auto;
     padding: 0;
-    /* ensuring all the boxes are the same size: */
     box-sizing: border-box;
     font-family: 'Bebas Neue', cursive;
 }
@@ -16,12 +15,10 @@
     position: absolute;
     top: 5rem;
     left: 50%;
-    /* transforms our table into a 2D variable and makes it in the middle of the screen with -50% */
     transform: translate(-50%); 
     width: 720px;
     height: 700px;
     background: rgb(0, 14, 0);
-    /* applying a shadow to each box for look */
     box-shadow: 5px 5px 5px 5px rgb(31, 30, 30);
 }
 .slot {

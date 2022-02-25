@@ -32,10 +32,9 @@ let winner = "";
 ///reset button///
 resetButton.addEventListener("click", resetGame);
 function resetGame () {
-    console.log(gameSlots);
     gameSlots.forEach(function (slot) {
-        slot.innerHTML = ''
-        slot.style.backgroundColor = "white";
+    slot.innerHTML = ''
+    slot.style.backgroundColor = "white";
     });
     moves.connect4Board = [
         ['','','', '','','',''],
@@ -79,7 +78,6 @@ function moveMade(event) {
             if (gameSlots[column + (i*7)].style.backgroundColor == "white") {
                 gameSlots[column + (i*7)].style.backgroundColor = "red"
                 moves.connect4Board [i] [column] = players.player1.text;
-                console.log(moves.connect4Board);
                 break;
             }
             
@@ -94,7 +92,6 @@ function moveMade(event) {
         else {
             players.player1.turn = false;
             players.player2.turn = true;
-            console.log(players.player1.turn);
         }
     }
     else {
@@ -103,7 +100,6 @@ function moveMade(event) {
             if (gameSlots[column + (i*7)].style.backgroundColor == "white") {
                 gameSlots[column + (i*7)].style.backgroundColor = "yellow"
                 moves.connect4Board [i] [column] = players.player2.text;
-                console.log(moves.connect4Board);
                 break;
             }
         }
@@ -116,14 +112,12 @@ function moveMade(event) {
         else { 
             players.player2.turn = false;
             players.player1.turn = true;
-            console.log(players.player2.turn);
         }
             
     }
 }
 function checkWinner(player) {
     //for loop to check horizontal rows
-    console.log(moves.connect4Board);
     for (let row=0; row <6; row++) {
         for (let col=0; col<4; col++) {
             if (moves.connect4Board[row][col]===player && moves.connect4Board[row][col+1]===player && moves.connect4Board[row][col+2]===player && moves.connect4Board[row][col+3]===player && player !== "") {
